@@ -1,0 +1,18 @@
+.generic-content-container {
+    /*para cualquier parrafo anidado*/
+    p {
+        line-height: 1.65;
+        font-size: 1rem; /*x default, no es necesario*/
+        margin: 1.8rem 0;
+
+        @mixin atSmall {
+            font-size: 1.125rem;
+        }
+    }
+
+    /*Para los links contenidos en un P
+    700 es un bold*/
+    p a{
+        font-weight: 700;
+    }
+}

@@ -1,0 +1,2 @@
+Corrección de instalacion de Gulp!
+https://timonweb.com/javascript/how-to-fix-referenceerror-primordials-is-not-defined-error/

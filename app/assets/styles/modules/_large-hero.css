@@ -1,0 +1,66 @@
+.large-hero{
+    border-bottom: 10px solid $mainBlue;
+    position: relative;
+
+    &__image {
+        display: block;
+    }
+
+    &__text-content{
+        position: absolute;
+        top: 50%;  /* alinea para q comience el contenido a la mitad del div*/
+        transform: translateY(-50%); /*lo hace relativo a si mismo cap 013*/
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    &__title {
+        font-weight: 300;
+        color: $mainBlue;
+        /*font-size: 4.8rem;*/
+        margin: 0;
+        font-size: 2.4rem;
+
+        @mixin atSmall{
+            font-size: 4.8rem; /*2rem;*/
+        }
+
+        /*@mixin atMedium{
+            font-size: 3.2rem;
+        }
+
+        @mixin atLarge{
+            font-size: 4.8rem;
+        }*/
+    }
+
+    /*el & esta explicado en el 014 BEM*/
+    &__subtitle {
+        font-weight: 300;
+        color: $mainBlue;
+        /*font-size: 2.9rem;*/
+        font-size: 1.5rem;
+        margin: 0;
+
+        @mixin atSmall{
+            font-size: 2.9rem;
+        }
+    }
+
+    &__description{
+        color: #fff;
+        font-size: 1.1rem;
+        /*REM Relative to the route of the page */
+        font-weight: 100;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, .1);
+        max-width: 30rem; /*con esto bajo la linea de texto 480px/16=30rem*/
+        margin-left: auto; /*con estas 2 lo centro al medio de nuevo*/
+        margin-right: auto;
+
+        @mixin atSmall{
+            font-size: 1.875rem;
+        }
+
+    }
+}

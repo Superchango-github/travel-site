@@ -1,0 +1,27 @@
+.wrapper {
+    overflow: hidden; /*esto es para ocultar lo ultimo de los row CAP024 min 15*/
+    padding-left: 18px;
+    padding-right: 18px;
+    /*max-width: 1200px; /*establece un ancho maximo para el texto*/
+    max-width: 1236px; /*se le suman los 36 de arriba 18 + 18*/
+    margin-left: auto; /*junto con la propiedad de abajo es para centrarlo*/
+    margin-right: auto;
+
+    &--medium {
+        max-width: 976px;
+    }
+
+    /*Esto es para los wrappers anidados.
+    Si está anidado, lo anulamos*/
+    .wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &--b-margin {
+        margin-bottom: 1rem;
+        @mixin atSmall {
+            margin-bottom: 3.875rem;
+        }
+    }
+}

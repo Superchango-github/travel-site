@@ -1,0 +1,56 @@
+.row {
+    /*Esta regla se crea para agregar contenido
+    vacío para que las 2 columnas o la fila sepa donde
+    termina. CAP024 min 7.00*/
+    /*&::after {
+        content: "";
+        clear: both;
+        display: table;
+    } se comenta y crea un mixin*/
+    @mixin clearfix;
+    /*Esto se va a agregar siempre después de
+    todo el contenido del row div principal*/
+
+    /*Esto es para quitar o poner padding 0 a
+    la ultima columna del row*/
+    &--gutters {
+        margin-right: -65px; /*igual al valor de abajo*/
+        /*background-color: yellow;*/
+    }
+
+    /*esto afecta a todos los hijos div*/
+    &--gutters > div {
+        padding-right: 65px;
+        /*box-sizing: border-box; /*esto afecta a como hace las cuentas x que
+        el 33.33 + 66.66% + 65px es mas del 100%*/
+    }
+
+    &__b-margin-until-medium {
+        margin-bottom: 1rem;
+    }
+
+    @mixin atMedium {
+
+        &__b-margin-until-medium {
+            margin-bottom: 0;
+        }
+
+        &__medium-4 {
+            float: left;
+            width: 33.33%;
+        }
+
+        &__medium-4--larger {
+            width: 37%;
+        }
+    
+        &__medium-8 {
+            float: left;
+            width: 66.66%;
+        }
+
+        &__medium-8--smaller {
+            width: 63%;
+        }
+    }
+}
