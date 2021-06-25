@@ -698,6 +698,13 @@ a {
         /*background-color: yellow;*/
     }
 
+/*Esto se va a agregar siempre después de
+    todo el contenido del row div principal*/
+
+.row--gutters-large {
+        margin-right: -100px;
+    }
+
 /*esto afecta a todos los hijos div*/
 
 .row--gutters > div {
@@ -706,16 +713,17 @@ a {
         el 33.33 + 66.66% + 65px es mas del 100%*/
     }
 
-/*Esto se va a agregar siempre después de
-    todo el contenido del row div principal*/
+/*Esta regla se crea para agregar contenido
+    vacío para que las 2 columnas o la fila sepa donde
+    termina. CAP024 min 7.00*/
+
+.row--gutters-large > div {
+        padding-right: 100px;
+    }
 
 .row__b-margin-until-medium {
         margin-bottom: 1rem;
     }
-
-/*Esta regla se crea para agregar contenido
-    vacío para que las 2 columnas o la fila sepa donde
-    termina. CAP024 min 7.00*/
 
 @media(min-width: 800px){
 
@@ -731,6 +739,11 @@ a {
         .row__medium-4--larger {
             width: 37%;
         }
+
+        .row__medium-6 {
+            float: left;
+            width: 50%;
+        }
     
         .row__medium-8 {
             float: left;
@@ -745,9 +758,10 @@ a {
 /*para cualquier parrafo anidado*/
 
 .generic-content-container p {
+        font-weight: 300;
         line-height: 1.65;
         font-size: 1rem; /*x default, no es necesario*/
-        margin: 1.8rem 0;
+        margin: 0 0 1.8rem 0;
     }
 
 @media(min-width: 530px){
@@ -762,4 +776,81 @@ a {
 
 .generic-content-container p a{
         font-weight: 700;
+    }
+
+.section-title {
+    font-size: 2.55rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+@media(min-width: 530px){
+
+.section-title {
+        font-size: 3.75rem
+}
+    }
+
+.section-title strong {
+        font-weight: 500;
+    }
+
+.section-title__icon {
+        /*ver como centrar la estrella al texto*/
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: .6rem;
+    }
+
+@media(min-width: 530px){
+
+.section-title__icon {
+            margin-right: .5rem;
+            margin-left: 0;
+            margin-bottom: 0;
+            display: inline-block
+    }
+    }
+
+.feature-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+}
+
+@media(min-width: 530px){
+
+.feature-item {
+        padding-left: 94px
+}
+    }
+
+.feature-item__icon {
+        display: block;
+        margin: 0 auto;
+    }
+
+@media(min-width: 530px){
+
+.feature-item__icon {
+            position: absolute;
+            left: 0
+    }
+    }
+
+.feature-item__title {
+        font-size: 1.6rem;
+        font-weight: 300;
+        margin-top: .7em;
+        margin-bottom: .8rem;
+        text-align: center;
+    }
+
+@media(min-width: 530px){
+
+.feature-item__title {
+            text-align: left;
+            margin-top: 1em;
+            font-size: 1.875rem
+    }
     }
