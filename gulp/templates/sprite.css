@@ -1,0 +1,24 @@
+/*NO EDITAR modules/_sprite directamente, el archivo es generado
+automaticamente x Gulp.
+En caso de ser necesario editar gulp/templates/sprite*/
+
+/*esto es propio del paquete de sprite
+todo lo que esta entre los shapes se hace
+en forma de loop x cada icono que recorre
+*/
+
+{{#shapes}}
+    /*Esto se ejecuta la primera vez*/
+    {{#first}}
+        .icon {
+            /*Le digo donde esta el svg que tienen todos los iconos
+            los ultimos { son que el nombre del archivo puede variar*/
+            background-image: url('/assets/images/sprites/{{{sprite}}}');
+        }
+    {{/first}}
+    .icon--{{base}} {
+        width: {{width.outer}}px;
+        height: {{height.outer}}px;
+        background-position: {{position.relative.xy}};
+    }
+{{/shapes}}
