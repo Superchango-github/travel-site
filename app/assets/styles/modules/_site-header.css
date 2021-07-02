@@ -3,6 +3,12 @@
     position: absolute;
     width: 100%;
     z-index: 2;
+    /*animación del fondo para mobiles*/
+    transition: background-color .2s ease-out;
+
+    &--is-expanded {
+        background-color: rgba($mainBlue, .55);
+    }
     
     @mixin atMedium {
         /*para usar variable debe estar instalado el plug-in postcss-hexrgba*/
@@ -10,7 +16,9 @@
     }
 
     &__btn-container {
-        float: right;
+        @mixin atMedium {
+            float: right;
+        }
     }
 
     &__logo {
@@ -36,22 +44,99 @@
 
     &__menu-icon {
         width: 20px;
-        height: 20px;
-        background-color: white;
+        height: 19px;
+        /*background-color: white;*/
         position: absolute;
+        z-index: 10;
         top: 10px;
         right: 10px;
+
+        /*&__top { // esto es un truco para evitar poner otro div
+        vacío en el html*/
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: white;
+            transform-origin: 0 0 ;
+            transition: transform .2s ease-out;
+        }
+
+        &__middle {
+            position: absolute;
+            top: 8px;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: white;
+            transition: all .2s ease-out;
+            transform-origin: 0 50%;
+        }
+
+        /*&__bottom {// esto es un truco para evitar poner otro div
+            vacío en el html*/
+        &::after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: white;
+            transform-origin: 0 100%;
+            transition: transform .2s ease-out;
+        }
 
         @mixin atMedium{
             display: none;
         }
     }
 
+    /*esto es para tranformar las 3 ||| en X*/
+    &__menu-icon--close-x {
+        &::before {
+            transform: rotate(45deg) scaleX(1.25);
+        }
+
+        /*se oculta la classe ya definida mas arriba*/
+        .site-header__menu-icon__middle {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        &::after {
+            transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+        }
+    }
+
     &__menu-content {
-        display: none;
+        /*display: none; // lo reemplazo x opacity y las 3 lineas siguientes*/
+        opacity: 0;
+        transform: scale(1.2); /*solo para efecto visual en el menu mobil*/
+        /*transition: opacity .2s ease-out;*/
+        transition: all .2s ease-out;
+        position: relative;
+        z-index: -10;
+
+        padding-top: 90px;
+        text-align: center;
 
         @mixin atMedium {
-            display: block;
+            /*display: block; //idem otros*/
+            opacity: 1;
+            z-index: 1;
+            padding-top: 0;
+            transform: scale(1); /*solo para efecto visual en el menu mobil*/
+        }
+
+        &--is-visible {
+            /*display: block; // lo reemplazo x opacity y las 3 lineas siguientes*/
+            opacity: 1;
+            z-index: 1;
+            transform: scale(1); /*solo para efecto visual en el menu mobil*/
         }
     }
 }

@@ -1200,7 +1200,14 @@ en forma de loop x cada icono que recorre
     position: absolute;
     width: 100%;
     z-index: 2;
+    /*animación del fondo para mobiles*/
+    -webkit-transition: background-color .2s ease-out;
+    transition: background-color .2s ease-out;
 }
+
+.site-header--is-expanded {
+        background-color: rgba(47,85,114, .55);
+    }
 
 @media(min-width: 800px){
 
@@ -1210,8 +1217,11 @@ en forma de loop x cada icono que recorre
 }
     }
 
+@media(min-width: 800px){
+
 .site-header__btn-container {
-        float: right;
+            float: right
+    }
     }
 
 .site-header__logo {
@@ -1244,12 +1254,64 @@ en forma de loop x cada icono que recorre
 
 .site-header__menu-icon {
         width: 20px;
-        height: 20px;
-        background-color: white;
+        height: 19px;
+        /*background-color: white;*/
         position: absolute;
+        z-index: 10;
         top: 10px;
         right: 10px;
     }
+
+/*&__top { // esto es un truco para evitar poner otro div
+        vacío en el html*/
+
+.site-header__menu-icon::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: white;
+            -webkit-transform-origin: 0 0 ;
+                    transform-origin: 0 0 ;
+            -webkit-transition: -webkit-transform .2s ease-out;
+            transition: -webkit-transform .2s ease-out;
+            transition: transform .2s ease-out;
+            transition: transform .2s ease-out, -webkit-transform .2s ease-out;
+        }
+
+.site-header__menu-icon__middle {
+            position: absolute;
+            top: 8px;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: white;
+            -webkit-transition: all .2s ease-out;
+            transition: all .2s ease-out;
+            -webkit-transform-origin: 0 50%;
+                    transform-origin: 0 50%;
+        }
+
+/*&__bottom {// esto es un truco para evitar poner otro div
+            vacío en el html*/
+
+.site-header__menu-icon::after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: white;
+            -webkit-transform-origin: 0 100%;
+                    transform-origin: 0 100%;
+            -webkit-transition: -webkit-transform .2s ease-out;
+            transition: -webkit-transform .2s ease-out;
+            transition: transform .2s ease-out;
+            transition: transform .2s ease-out, -webkit-transform .2s ease-out;
+        }
 
 @media(min-width: 800px){
 
@@ -1258,19 +1320,77 @@ en forma de loop x cada icono que recorre
     }
     }
 
+/*esto es para tranformar las 3 ||| en X*/
+
+.site-header__menu-icon--close-x::before {
+            -webkit-transform: rotate(45deg) scaleX(1.25);
+                    transform: rotate(45deg) scaleX(1.25);
+        }
+
+/*se oculta la classe ya definida mas arriba*/
+
+.site-header__menu-icon--close-x .site-header__menu-icon__middle {
+            opacity: 0;
+            -webkit-transform: scaleX(0);
+                    transform: scaleX(0);
+        }
+
+.site-header__menu-icon--close-x::after {
+            -webkit-transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+                    transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+        }
+
 .site-header__menu-content {
-        display: none;
+        /*display: none; // lo reemplazo x opacity y las 3 lineas siguientes*/
+        opacity: 0;
+        -webkit-transform: scale(1.2);
+                transform: scale(1.2); /*solo para efecto visual en el menu mobil*/
+        /*transition: opacity .2s ease-out;*/
+        -webkit-transition: all .2s ease-out;
+        transition: all .2s ease-out;
+        position: relative;
+        z-index: -10;
+
+        padding-top: 90px;
+        text-align: center;
     }
 
 @media(min-width: 800px){
 
 .site-header__menu-content {
-            display: block
+            /*display: block; //idem otros*/
+            opacity: 1;
+            z-index: 1;
+            padding-top: 0;
+            -webkit-transform: scale(1);
+                    transform: scale(1) /*solo para efecto visual en el menu mobil*/
     }
     }
 
+.site-header__menu-content--is-visible {
+            /*display: block; // lo reemplazo x opacity y las 3 lineas siguientes*/
+            opacity: 1;
+            z-index: 1;
+            -webkit-transform: scale(1);
+                    transform: scale(1); /*solo para efecto visual en el menu mobil*/
+        }
+
+.primary-nav {
+    padding-top: 10px;
+}
+
+@media(min-width: 800px){
+
+.primary-nav {
+        padding-top: 0
+}
+    }
+
+@media(min-width: 800px){
+
 .primary-nav--pull-right{
-        float: right;
+            float: right
+    }
     }
 
 .primary-nav ul {
@@ -1286,8 +1406,31 @@ en forma de loop x cada icono que recorre
 
 .primary-nav li {
         list-style: none;
-        float: left;
-        padding-right: 20px;
+        display: inline-block;
+        padding-right: 7px;
+    }
+
+@media(min-width: 800px){
+
+.primary-nav li {
+            padding-right: 20;
+            float: left;
+            display: block
+    }
+    }
+
+/*Esto es para mobiles y que el ultimo itrm de 
+    menu no tenga padding*/
+
+.primary-nav li:last-child {
+        padding-right: 0;
+    }
+
+@media(min-width: 800px){
+
+.primary-nav li:last-child {
+            padding-right: 20
+    }
     }
 
 .primary-nav a {
@@ -1295,5 +1438,16 @@ en forma de loop x cada icono que recorre
         font-weight: 300;
         text-decoration: none;
         display: block;
-        padding: 12px 0;
+        padding: 5px 8px;
+        font-size: .8rem;
+        background-color: rgba(47,85,114, .5);
+    }
+
+@media(min-width: 800px){
+
+.primary-nav a {
+            font-size: 1rem;
+            padding: 12px 0;
+            background-color: transparent
+    }
     }

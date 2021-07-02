@@ -17,10 +17,18 @@ gulp.task('watch', function(){
       //gulp.start('styles');
       gulp.start('cssInject');
     })
+    watch('./app/assets/scripts/**/*.js', function() {
+      gulp.start('scriptsRefresh');
+    })
   });
 
-  //lo que esta entre corchete es una dependencia
+//lo que esta entre corchete es una dependencia
 gulp.task('cssInject',['styles'], function(){
     return gulp.src('./app/temp/styles/styles.css')
     .pipe(browserSync.stream());
   });
+
+//esto es para que webpack haga un bundle del .js y despues haga el refresh
+gulp.task('scriptsRefresh', ['scripts'], function() {
+  browserSync.reload();
+});
