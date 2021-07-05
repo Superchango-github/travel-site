@@ -1213,8 +1213,13 @@ en forma de loop x cada icono que recorre
 
 .site-header {
         /*para usar variable debe estar instalado el plug-in postcss-hexrgba*/
-        background-color: rgba(47,85,114, .3)
+        background-color: rgba(47,85,114, .3);
+        position: fixed
 }
+
+        .site-header--dark {
+            background-color: rgba(23,51,72, .85);
+        }
     }
 
 @media(min-width: 800px){
@@ -1231,6 +1236,10 @@ en forma de loop x cada icono que recorre
         left: 50%;
         -webkit-transform: translateX(-50%) scale(.8);
                 transform: translateX(-50%) scale(.8);
+        -webkit-transition: -webkit-transform .2s ease-out;
+        transition: -webkit-transform .2s ease-out;
+        transition: transform .2s ease-out;
+        transition: transform .2s ease-out, -webkit-transform .2s ease-out;
         -webkit-transform-origin: 50% 0;
                 transform-origin: 50% 0; /*para centrar al medio y arriba*/
         background-color: #2f5572;
@@ -1244,6 +1253,11 @@ en forma de loop x cada icono que recorre
             -webkit-transform: translateX(0);
                     transform: translateX(0)
     }
+
+            .site-header--dark .site-header__logo {
+                -webkit-transform: scale(.57);
+                        transform: scale(.57);
+            }
     }
 
 /*Esto es para q no aparezca texto sobre el ICONO de la empresa*/
@@ -1413,7 +1427,7 @@ en forma de loop x cada icono que recorre
 @media(min-width: 800px){
 
 .primary-nav li {
-            padding-right: 20;
+            padding-right: 20px;
             float: left;
             display: block
     }
@@ -1429,7 +1443,7 @@ en forma de loop x cada icono que recorre
 @media(min-width: 800px){
 
 .primary-nav li:last-child {
-            padding-right: 20
+            padding-right: 20px
     }
     }
 
@@ -1450,6 +1464,10 @@ en forma de loop x cada icono que recorre
             padding: 12px 0;
             background-color: transparent
     }
+
+            .primary-nav a.is-current-link {
+                color: #fabb69;
+            }
     }
 
 .reveal-item {
