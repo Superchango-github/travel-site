@@ -15,6 +15,10 @@ en forma de loop x cada icono que recorre
             los ultimos { son que el nombre del archivo puede variar*/
             background-image: url('/assets/images/sprites/{{{sprite}}}');
         }
+
+        .no-svg .icon {
+            background-image: url('/assets/images/sprites/{{#replaceSvgWithPng}}{{{sprite}}}{{/replaceSvgWithPng}}');
+        }
     {{/first}}
     .icon--{{base}} {
         width: {{width.outer}}px;
