@@ -5,10 +5,14 @@
 var path = require('path');
 
 module.exports = {
-    entry: "./app/assets/scripts/App.js",
+    entry: {
+        App: "./app/assets/scripts/App.js",
+        vendor: "./app/assets/scripts/Vendor.js"
+    },
     output: {
         path: path.resolve(__dirname, "./app/temp/scripts"),
-        filename: "App.js" /*puede ser cualquier nombre App-bundle x ejemplo*/
+        filename: "[name].js" /*puede ser cualquier nombre App-bundle x ejemplo
+                                se cambia [] para que el nombre sea dinamico*/
     },
     /**esto es para babel */
     module: {
