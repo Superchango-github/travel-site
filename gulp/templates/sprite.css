@@ -13,11 +13,11 @@ en forma de loop x cada icono que recorre
         .icon {
             /*Le digo donde esta el svg que tienen todos los iconos
             los ultimos { son que el nombre del archivo puede variar*/
-            background-image: url('/assets/images/sprites/{{{sprite}}}');
+            background-image: url('../../assets/images/sprites/{{{sprite}}}');
         }
 
         .no-svg .icon {
-            background-image: url('/assets/images/sprites/{{#replaceSvgWithPng}}{{{sprite}}}{{/replaceSvgWithPng}}');
+            background-image: url('../../assets/images/sprites/{{#replaceSvgWithPng}}{{{sprite}}}{{/replaceSvgWithPng}}');
         }
     {{/first}}
     .icon--{{base}} {

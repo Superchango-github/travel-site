@@ -8,18 +8,18 @@ gulp.task('watch', function(){
       server:{
         baseDir: "app"
       }
-    })
+    });
     watch('./app/index.html', function(){
       //gulp.start('html');
       browserSync.reload();
-    })
+    });
     watch('./app/assets/styles/**/*.css', function(){
       //gulp.start('styles');
       gulp.start('cssInject');
-    })
+    });
     watch('./app/assets/scripts/**/*.js', function() {
       gulp.start('scriptsRefresh');
-    })
+    });
   });
 
 //lo que esta entre corchete es una dependencia

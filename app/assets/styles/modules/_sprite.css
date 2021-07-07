@@ -11,11 +11,11 @@ en forma de loop x cada icono que recorre
         .icon {
             /*Le digo donde esta el svg que tienen todos los iconos
             los ultimos { son que el nombre del archivo puede variar*/
-            background-image: url('/assets/images/sprites/sprite-1e36f1cc.svg');
+            background-image: url('../../assets/images/sprites/sprite-1e36f1cc.svg');
         }
 
         .no-svg .icon {
-            background-image: url('/assets/images/sprites/sprite-1e36f1cc.png');
+            background-image: url('../../assets/images/sprites/sprite-1e36f1cc.png');
         }
     .icon--clear-view-escapes {
         width: 144.4px;
